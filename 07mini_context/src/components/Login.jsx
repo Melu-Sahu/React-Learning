@@ -4,7 +4,10 @@ import UserContext from '../context/UserContext'
 const Login = () => {
     const [userName, setUsername] =useState('');
     const [password, setPassword] = useState('');
+
+    //access the user context data and methods
     const {setUser} = useContext(UserContext);
+
     function handleSubmit(e){
 
         e.preventDefault();
