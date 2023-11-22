@@ -20,8 +20,9 @@ const Navbar = () => {
       <Link to={"/"}>
         <img src={Logo} alt='logo' style={{ width: '48px', height: '48px', margin: '0 20px' }} />
       </Link>
-      
-
+      <div className="nav__links">
+        
+      </div>
       <Stack
         direction="row"
         gap="40px"
