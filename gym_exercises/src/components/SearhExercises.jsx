@@ -2,6 +2,15 @@ import { useState, useEffect, React } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 
 const SearhExercises = () => {
+
+
+    const [search, setSearch ]  = useState("");
+    const handleSearch = async ()=>{
+        if(search){
+            // const exercisesData = await fetchData();
+        }
+    }
+
     return (
         <Stack
             alignItems='center'
@@ -10,11 +19,11 @@ const SearhExercises = () => {
             p='20px'
         >
             <Typography
-                fontWeight={700}
                 sx={{
                     fontSize: { lg: '44px', xm: '30px' },
                     mb: '50px',
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    fontWeight: 700
                 }}
             >
                 Awesome exercises You <br /> should know...
@@ -30,18 +39,43 @@ const SearhExercises = () => {
                             border: 'none',
                             borderRadius: '4px'
                         },
-                        width:{
-                            
-                        }
+                        width: {
+                            lg: '800px',
+                            xs:'350px'
+                        },
+                        backgroundColor:'#fff',
+                        borderRadius:'40px'
                     }}
                     height='76px'
-                    value=''
-                    onChange={() => { }}
+                    value={search}
+                    onChange={(e) => { setSearch(e.target.value.toLowerCase()) }}
                     placeholder='search exercises...'
                     type='text'
                 />
 
+                <Button className='search-btn'
+                    sx={{
+                        backgroundColor:'#ff2625',
+                        color:'#fff',
+                        textTransform:'none',
+                        width:{lg:'175px', xm:'80px'},
+                        fontSize:{lg:'20px',xs:'14px'},
+                        height: '56px',
+                        position:'absolute',
+                        right:0
+                    }}
+
+                    onClick={handleSearch}
+
+                >
+                    search
+                </Button>
+
+
+
             </Box>
+
+
 
 
         </Stack>
