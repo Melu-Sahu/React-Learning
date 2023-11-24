@@ -1,18 +1,39 @@
 import { useState, useEffect, React } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
 
-const SearhExercises = () => {
+const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
 
 
-    const [search, setSearch ]  = useState("");
-    const handleSearch = async ()=>{
-        if(search){
-            const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+    const [search, setSearch] = useState(" ");
+    const [exercises, setExercises] = useState([]);
+    const [bodyParts, setBodyParts] = useState([])
 
 
-            await console.log(exercisesData);
+    const fetchExercisesData = async () => {
+        const bodyPartData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+
+        setBodyParts(['all', ...bodyPartData]);
+    }
+
+    useEffect(() => {
+
+        fetchExercisesData();
+    }, []);
+
+
+    const handleSearch = async () => {
+        console.log("handleSearch()");
+        if (search) {
+            console.log("1handleSearch()");
+            const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+            const searchedExercises = exercisesData.filter(
+                (exercise) => exercise.name.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search)
+            )
+            setSearch('');
+            setExercises(searchedExercises);
         }
 
 
@@ -48,10 +69,10 @@ const SearhExercises = () => {
                         },
                         width: {
                             lg: '800px',
-                            xs:'350px'
+                            xs: '350px'
                         },
-                        backgroundColor:'#fff',
-                        borderRadius:'40px'
+                        backgroundColor: '#fff',
+                        borderRadius: '40px'
                     }}
                     height='76px'
                     value={search}
@@ -62,14 +83,14 @@ const SearhExercises = () => {
 
                 <Button className='search-btn'
                     sx={{
-                        backgroundColor:'#ff2625',
-                        color:'#fff',
-                        textTransform:'none',
-                        width:{lg:'175px', xm:'80px'},
-                        fontSize:{lg:'20px',xs:'14px'},
+                        backgroundColor: '#ff2625',
+                        color: '#fff',
+                        textTransform: 'none',
+                        width: { lg: '175px', xm: '80px' },
+                        fontSize: { lg: '20px', xs: '14px' },
                         height: '56px',
-                        position:'absolute',
-                        right:0
+                        position: 'absolute',
+                        right: 0
                     }}
 
                     onClick={handleSearch}
@@ -82,6 +103,18 @@ const SearhExercises = () => {
 
             </Box>
 
+
+            <Box
+                sx={{
+                    position: 'relative',
+                    width: '100%',
+                    p: '20px'
+                }}
+            >
+                <HorizontalScrollbar data={bodyParts}
+                bodyPart={bodyPart}
+                setBodyPart={setBodyPart} />
+            </Box>
 
 
 
