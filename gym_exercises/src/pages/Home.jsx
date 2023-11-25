@@ -12,7 +12,7 @@ const Home = () => {
     <Box>
       <HeroBanner />
       <SearhExercises setExercise={setExercise} bodyPart={bodyPart} setBodyPart={setBodyPart}  />
-      <Exercises setExercises={setExercise} bodyPart={bodyPart} setBodyPart={setBodyPart} />      
+      <Exercises setExercises={setExercise} bodyPart={bodyPart} exercises={exercise} />      
     </Box>
   )
 }
