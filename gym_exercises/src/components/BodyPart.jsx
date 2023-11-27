@@ -11,7 +11,7 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
             className='bodyPart-card'
 
             sx={{
-                borderTop: bodyPart === item ? '4px solid #ff2625' : '' ,
+                borderTop: bodyPart === item ? '4px solid #ff2625' : '',
                 backgroundColor: '#fff',
                 borderBottomLeftRadius: '20px',
                 width: '270px',
@@ -20,22 +20,22 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
                 height: '280px',
             }}
 
-            onClick = {()=>{
+            onClick={() => {
                 setBodyPart(item);
-                window.scrollTo({top: 1800 , left: 100, behavior: 'smooth'});
+                window.scrollTo({ top: 2000, left: 100, behavior: 'smooth' });
             }}
         >
-    <img src={Icon} alt='dumblell' style={{ width: '40px', height: '40px' }} />
+            <img src={Icon} alt='dumblell' style={{ width: '40px', height: '40px' }} />
 
-    <Typography
-    
-    fontSize='24px'
-    fontWeight='bold'
-    textTransform='capitalize'
-    color='#3A1212'
-    >
-        {item}
-    </Typography>
+            <Typography
+
+                fontSize='24px'
+                fontWeight='bold'
+                textTransform='capitalize'
+                color='#3A1212'
+            >
+                {item}
+            </Typography>
 
         </Stack >
     )

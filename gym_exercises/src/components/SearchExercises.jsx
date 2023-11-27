@@ -25,18 +25,15 @@ const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
 
 
     const handleSearch = async () => {
-        console.log("handleSearch()");
         if (search) {
-            console.log("1handleSearch()");
             const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
             const searchedExercises = exercisesData.filter(
                 (exercise) => exercise.name.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search)
             )
-            setSearch('');
+            // console.log(exercisesData);
+            // setSearch('');
             setExercises(searchedExercises);
         }
-
-
     }
 
     return (
@@ -83,7 +80,7 @@ const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
 
                 <Button className='search-btn'
                     sx={{
-                        backgroundColor: '#ff2625',
+                        bgcolor: '#ff2625',
                         color: '#fff',
                         textTransform: 'none',
                         width: { lg: '175px', xm: '80px' },
@@ -98,9 +95,6 @@ const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
                 >
                     search
                 </Button>
-
-
-
             </Box>
 
 
@@ -111,7 +105,8 @@ const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
                     p: '20px'
                 }}
             >
-                <HorizontalScrollbar data={bodyParts}
+                <HorizontalScrollbar
+                data={bodyParts}
                 bodyPart={bodyPart}
                 setBodyPart={setBodyPart} />
             </Box>

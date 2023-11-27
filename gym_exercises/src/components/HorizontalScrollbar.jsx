@@ -9,11 +9,11 @@ import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 
 const RightArrow =()=>{
-    const {scrollPrev} = useContext(VisibilityContext);
+    const {scrollNext} = useContext(VisibilityContext);
 
     return(
         <Typography
-        onClick={()=>{scrollPrev()}} className='left-arrow'
+        onClick={()=>{scrollNext()}} className='left-arrow'
         >
             <img src={RightArrowIcon} alt='left-arrow'/>
 
@@ -21,11 +21,11 @@ const RightArrow =()=>{
     )
 };
 const LeftArrow =()=>{
-    const {scrollNext} = useContext(VisibilityContext);
+    const {scrollPrev} = useContext(VisibilityContext);
 
     return(
         <Typography
-        onClick={()=>{scrollNext()}} className='right-arrow'
+        onClick={()=>{scrollPrev()}} className='right-arrow'
         >
             <img src={LeftArrowIcon} alt='right-arrow'/>
 
