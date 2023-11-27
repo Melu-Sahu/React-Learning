@@ -7,9 +7,8 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
 
 
-    const [search, setSearch] = useState(" ");
-    const [exercises, setExercises] = useState([]);
-    const [bodyParts, setBodyParts] = useState([])
+    const [search, setSearch] = useState("");
+    const [bodyParts, setBodyParts] = useState([]);
 
 
     const fetchExercisesData = async () => {
@@ -19,20 +18,27 @@ const SearhExercises = ({setExercise, bodyPart, setBodyPart}) => {
     }
 
     useEffect(() => {
-
         fetchExercisesData();
+
     }, []);
 
 
     const handleSearch = async () => {
         if (search) {
+
             const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-            const searchedExercises = exercisesData.filter(
-                (exercise) => exercise.name.toLowerCase().includes(search) || exercise.bodyPart.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search)
-            )
-            // console.log(exercisesData);
+            // console.log('exercise Data', exercisesData);
+
+            const searchedExercises =  exercisesData.filter(
+                (item) => item.name.toLowerCase().includes(search)
+                       || item.target.toLowerCase().includes(search)
+                       || item.equipment.toLowerCase().includes(search)
+                       || item.bodyPart.toLowerCase().includes(search)
+              );
+
+            // console.log("Searched Exercise Data", searchedExercises);
             // setSearch('');
-            setExercises(searchedExercises);
+            setExercise(searchedExercises);
         }
     }
 
