@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Pagination } from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
+import {fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
-  console.log(exercises);
-
+console.log(exercises);
 
 
   const fetchexercisedata = async () => {
     let exerciseData = [];
     if (bodyPart === 'all') {
-      exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+      exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises');
     } else {
-      exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
+      exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`);
     }
     setExercises(exerciseData);
   }
@@ -37,7 +36,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       <Stack direction='row' sx={{ gap: { lg: '110px', xs: '50px' } }} flexWrap='wrap' justifyContent='center'>
         {
           exercises.map((exercise, index) => (
-            <ExerciseCard key={index} exercise ={exercise} />
+            <ExerciseCard key={index} exercise ={exercise}/> 
           ))
         }
       </Stack>
