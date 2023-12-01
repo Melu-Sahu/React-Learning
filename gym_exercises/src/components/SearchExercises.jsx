@@ -1,31 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 
 import { FetchData } from '../utils/fetchData';
-import HorizontalScrollbar from './HorizontalScrollbar';
-import { useExercises } from '../context_data/ExerciseData';
-import { useBodyPart } from '../context_data/BodyPart';
+import { useExercises } from '../context_data/ExerciseDataContext';
 
 const SearchExercises = () => {
 
-    const { exercises, setExercises } = useExercises();
-    const {bodyParts, setBodyParts} = useBodyPart();
-
+    const { setExercises } = useExercises();
     const [search, setSearch] = useState('');
 
 
-    const fetchExercisesData = async () => {
-        const bodyPartsData = await FetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList');
-        setBodyParts(['all', ...bodyPartsData]);
-    };
 
-    useEffect(() => {
-        fetchExercisesData();
-    }, []);
 
     const handleSearch = async () => {
         if (search) {
-            const exercisesData = await FetchData('https://exercisedb.p.rapidapi.com/exercises');
+            const exercisesData = await FetchData('https://exercisedb.p.rapidapi.com/exercises?limit=500');
 
             const searchedExercises = exercisesData.filter(
                 (item) => item.name.toLowerCase().includes(search)
@@ -35,7 +24,7 @@ const SearchExercises = () => {
             );
 
             setExercises(searchedExercises);
-            window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+            window.scrollTo({ top: 2000, left: 100, behavior: 'smooth' });
 
             setSearch('');
         }
@@ -59,8 +48,12 @@ const SearchExercises = () => {
                     Search
                 </Button>
             </Box>
+
+
             <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-                {/* <HorizontalScrollbar /> */}
+
+            {/* <HorizontalScrollbar /> */}
+
             </Box>
         </Stack>
     );

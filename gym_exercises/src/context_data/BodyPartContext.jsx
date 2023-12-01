@@ -3,10 +3,10 @@ import React, { createContext, useContext, useState } from 'react';
 const BodyPartContext = createContext();
 
 export const BodyPartProvider = ({ children }) => {
-  const [bodyPart, setBodyPart] = useState('');
+  const [bodyParts, setBodyParts] = useState('');
 
   return (
-    <BodyPartContext.Provider value={{ bodyPart, setBodyPart }}>
+    <BodyPartContext.Provider value={{ bodyParts, setBodyParts }}>
       {children}
     </BodyPartContext.Provider>
   );

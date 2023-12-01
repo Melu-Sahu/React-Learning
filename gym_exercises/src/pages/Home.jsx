@@ -4,7 +4,6 @@ import { Box } from '@mui/material';
 import HeroBanner from '../components/HeroBanner';
 import SearchExercises from '../components/SearchExercises';
 import Exercises from '../components/Exercises';
-import { useBodyPart } from '../context_data/BodyPart';
 
 
 const Home = () => {
@@ -15,7 +14,7 @@ const Home = () => {
     <Box>
       <HeroBanner />
       <SearchExercises  />
-      {/* <Exercises  /> */}
+      <Exercises  />
     </Box>
   );
 };

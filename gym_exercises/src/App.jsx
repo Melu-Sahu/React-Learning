@@ -1,28 +1,25 @@
-import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Home from './pages/Home';
 import ExerciseDetails from './pages/ExerciseDetails';
 import Navbar from './components/Navbar';
 import Footer from './pages/Footer';
-import { useBodyPart } from './context_data/BodyPart';
 
 
 const App = () => {
 
-  const {bodyParts, setBodyParts} = useBodyPart();
-
 
   return (
     <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
-      {/* <Navbar />
+
+
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:id" element={<ExerciseDetails />} />
       </Routes>
-      <Footer /> */}
+      <Footer />
 
-      <HorizontalScrollbar />
 
 
     </Box>
