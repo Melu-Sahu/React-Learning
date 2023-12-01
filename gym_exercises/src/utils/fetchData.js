@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { useState } from 'react';
 
 export async function FetchData(url) {
 
-    let apiData;
 
     const options = {
       method: 'GET',
@@ -15,12 +15,12 @@ export async function FetchData(url) {
 
     try {
         const response = await axios.request(options);
+        // const response = await axios.request();
         // console.log(response.data);
-        apiData = response.data;
+        return response.data;
     } catch (error) {
         console.error(error);
     }
 
-    // return apiData;
 }
 
