@@ -3,8 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const BodyPartContext = createContext();
 
 export const BodyPartProvider = ({ children }) => {
-  const [bodyParts, setBodyParts] = useState('');
-
+  const [bodyParts, setBodyParts] = useState([]);
   return (
     <BodyPartContext.Provider value={{ bodyParts, setBodyParts }}>
       {children}

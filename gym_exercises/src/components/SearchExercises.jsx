@@ -1,16 +1,13 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-
 import { FetchData } from '../utils/fetchData';
 import { useExercises } from '../context_data/ExerciseDataContext';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = () => {
 
     const { setExercises } = useExercises();
     const [search, setSearch] = useState('');
-
-
-
 
     const handleSearch = async () => {
         if (search) {
@@ -52,7 +49,7 @@ const SearchExercises = () => {
 
             <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
 
-            {/* <HorizontalScrollbar /> */}
+                <HorizontalScrollbar />
 
             </Box>
         </Stack>

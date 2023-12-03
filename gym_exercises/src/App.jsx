@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ExerciseDetails from './pages/ExerciseDetails';
 import Navbar from './components/Navbar';
 import Footer from './pages/Footer';
+import HorizontalScrollbar from './components/HorizontalScrollbar';
 
 
 const App = () => {
@@ -19,6 +20,9 @@ const App = () => {
         <Route path="/exercise/:id" element={<ExerciseDetails />} />
       </Routes>
       <Footer />
+
+
+      {/* <HorizontalScrollbar /> */}
 
 
 
