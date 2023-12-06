@@ -21,18 +21,16 @@ const Exercises = () => {
     let exercisesData = [];
 
     if (bodyPart === 'all') {
-      exercisesData = await FetchData('https://exercisedb.p.rapidapi.com/exercises?limit=500');
+      exercisesData = await FetchData('https://exercisedb.p.rapidapi.com/exercises?limit=500', 'exercisedb');
     } else {
-      exercisesData = await FetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`);
+      exercisesData = await FetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, 'exercisedb');
     }
 
     setExercises(exercisesData);
   };
 
   useEffect(() => {
-
-
-    fetchExercisesData();
+    // fetchExercisesData();
   }, [bodyPart]);
 
   // Pagination

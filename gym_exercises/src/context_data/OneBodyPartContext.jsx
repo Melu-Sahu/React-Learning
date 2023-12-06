@@ -3,10 +3,10 @@ import React, { createContext, useContext, useState } from 'react';
 const OneBodyPartContext = createContext();
 
 export const OneBodyPartProvider = ({ children }) => {
-  const [bodyPart, setsetBodyPart] = useState('all');
+  const [bodyPart, setBodyPart] = useState('all');
 
   return (
-    <OneBodyPartContext.Provider value={{ bodyPart, setsetBodyPart }}>
+    <OneBodyPartContext.Provider value={{ bodyPart, setBodyPart }}>
       {children}
     </OneBodyPartContext.Provider>
   );
@@ -15,7 +15,7 @@ export const OneBodyPartProvider = ({ children }) => {
 export const useOneBodyPart = () => {
   const context = useContext(OneBodyPartContext);
   if (!context) {
-    throw new Error('useExercises must be used within a ExercisesProvider');
+    throw new Error('useOneBodyPart must be used within a ExercisesProvider');
   }
   return context;
 };

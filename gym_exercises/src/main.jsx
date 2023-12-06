@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ExercisesProvider } from './context_data/ExerciseDataContext.jsx';
 import { BodyPartProvider } from './context_data/BodyPartContext.jsx';
 import { OneBodyPartProvider } from './context_data/OneBodyPartContext.jsx';
+import { ExerciseDetailProvider } from './context_data/ExerciseDetailContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ExercisesProvider>
         <BodyPartProvider>
           <OneBodyPartProvider>
-          <App />
+            <ExerciseDetailProvider>
+              <App />
+            </ExerciseDetailProvider>
           </OneBodyPartProvider>
         </BodyPartProvider>
       </ExercisesProvider>

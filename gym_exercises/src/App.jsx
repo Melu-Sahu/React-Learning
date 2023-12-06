@@ -5,6 +5,7 @@ import ExerciseDetails from './pages/ExerciseDetails';
 import Navbar from './components/Navbar';
 import Footer from './pages/Footer';
 import HorizontalScrollbar from './components/HorizontalScrollbar';
+import GoToHome from './components/GoToHome';
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
 
+      <GoToHome />
 
       <Navbar />
       <Routes>
