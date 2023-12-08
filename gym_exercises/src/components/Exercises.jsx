@@ -30,7 +30,7 @@ const Exercises = () => {
   };
 
   useEffect(() => {
-    // fetchExercisesData();
+    fetchExercisesData();
   }, [bodyPart]);
 
   // Pagination
@@ -60,6 +60,7 @@ const Exercises = () => {
             mt='10px'
             color="standard"
             shape="rounded"
+            variant='outlined'
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}

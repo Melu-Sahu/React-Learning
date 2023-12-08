@@ -13,16 +13,6 @@ const SearchExercises = () => {
     const { bodyPart, setBodyPart } = useOneBodyPart();
     const { bodyParts, setBodyParts } = useBodyPart();
 
-    const bodyPartsData = async () => {
-        const res = await FetchData("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", 'exercisedb');
-        setBodyParts(['all', ...res]);
-    }
-
-    useEffect(() => {
-        bodyPartsData();
-    }, []);
-
-
     const handleSearch = async () => {
         if (search) {
             const exercisesData = await FetchData('https://exercisedb.p.rapidapi.com/exercises?limit=500', 'exercisedb');
@@ -40,6 +30,16 @@ const SearchExercises = () => {
             setSearch('');
         }
     };
+
+    const loadBodyParts =  async ()=>{
+        const bodyPartList = await FetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList','exercisedb');
+        setBodyParts(bodyPartList);
+    }
+
+
+    useEffect(()=>{
+        // loadBodyParts();
+    },[])
 
     return (
         <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
@@ -63,7 +63,7 @@ const SearchExercises = () => {
 
             <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
 
-                <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+                <HorizontalScrollbar data={bodyParts} bodyParts={true} bodyPart={bodyPart} setBodyPart={setBodyPart} />
 
             </Box>
         </Stack>

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
 import Icon from '../assets/icons/gym.png';
-import { useOneBodyPart } from '../context_data/OneBodyPartContext';
 
 
-const BodyPart = ({ item }) => {
+const BodyPart = ({ item, bodyPart, setBodyPart }) => {
 
-  const { bodyPart, setBodyPart } = useOneBodyPart();
 
   return (
 

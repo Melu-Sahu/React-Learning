@@ -6,7 +6,7 @@ export async function FetchData(url, dataFrom) {
     method: 'GET',
     url: url,
     headers: {
-      'X-RapidAPI-Key': '4333d9c2a3mshebb22741b3f0000p1d0abdjsn4cb7cb3e41cc',
+      'X-RapidAPI-Key': 'cf17667fefmsh186fabb856a442bp1df7aejsne3ab7a7ef01e',
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   };
@@ -27,7 +27,7 @@ export async function FetchData(url, dataFrom) {
 
       return response.data;
     } catch (error) {
-      console.error(error);
+      console.error("Youtube server error :", error);
     }
   } else if(dataFrom === 'exercisedb'){
     try {
@@ -35,7 +35,7 @@ export async function FetchData(url, dataFrom) {
 
       return response.data;
     } catch (error) {
-      console.error(error);
+      console.error("exercisedb server error : ", error);
     }
   }else{
     console.log('dataFrom is not found.');
