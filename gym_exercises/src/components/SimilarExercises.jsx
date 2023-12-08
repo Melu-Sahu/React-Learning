@@ -20,7 +20,7 @@ const SimilarExercises = ({ id, target, equipment }) => {
   }
 
   useEffect(()=>{
-    // loadExerciseData();
+    loadExerciseData();
 
   },[id, target, equipment]);
 

@@ -6,7 +6,7 @@ export async function FetchData(url, dataFrom) {
     method: 'GET',
     url: url,
     headers: {
-      'X-RapidAPI-Key': 'cf17667fefmsh186fabb856a442bp1df7aejsne3ab7a7ef01e',
+      'X-RapidAPI-Key': process.env.RAPID_API_EXERCISEDDB_KEY,
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   };
@@ -16,7 +16,7 @@ export async function FetchData(url, dataFrom) {
     method: 'GET',
     url: url,
     headers: {
-      'X-RapidAPI-Key': '03e5c27c04msh0c478f16ee40b80p15b412jsn6dc8405bcd3c',
+      'X-RapidAPI-Key': process.env.RAPID_API_YOUTUBE_SEARCH_AND_DOWNLOAD_KEY,
       'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
     }
   }

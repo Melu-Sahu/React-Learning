@@ -38,7 +38,7 @@ const SearchExercises = () => {
 
 
     useEffect(()=>{
-        // loadBodyParts();
+        loadBodyParts();
     },[])
 
     return (
