@@ -1,8 +1,8 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
-const initialState = {
-    todos: [{ id: 1, text: "Hellow redux lerner" }]
 
+const initialState = {
+    todos: [{ id: 1, text: "Hello World" }]
 }
 
 export const todoSlice = createSlice({
@@ -15,35 +15,13 @@ export const todoSlice = createSlice({
                 text: action.payload
             }
             state.todos.push(todo);
-
-                    //or
-            // state.todos = [...state.todos, { text: action.payload, id: nanoid() }]
         },
         removeTodo: (state, action) => {
-
-            state.todos = state.todos.filter((todo)=>todo.id !== action.payload)
-
-
-            // let newArr = state.todos.filter(item => item.id !== action.payload);
-            // return{ ...state, todos:newArr };
-        },
-
-        // deleteTodo: (state, action) => {
-        //     return state.todos.filter(item => item.id !== action.payload);
-        // },
-
-
-
-        updateTodo: (state, action) => {
-            let newText = action.payload;
-            state.todos.map((item) =>
-                (item.id === newText[0]) ?
-                    ({ ...item, text: newText[1] }) :
-                    item);
-            // console.log("updated",state.todos);
+            state.todos = state.todos.filter((todo) => todo.id != action.payload)
         }
     }
 })
 
-export const {addTodo, removeTodo, updateTodo} =todoSlice.actions
+
+export const {addTodo, removeTodo} = todoSlice.actions;
 export default todoSlice.reducer
